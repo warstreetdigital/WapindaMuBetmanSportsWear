@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Betman Sports Wear | Harare CBD</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#38bdf8;
+  --secondary:#ffffff;
+  --bg:#f5faff;
+  --card:#ffffff;
+  --text:#1c1c1c;
+  --muted:#6b7280;
+  --shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;padding-bottom:140px;}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;letter-spacing:.5px;}
+
+.container{width:92%;max-width:1150px;margin:auto;padding:20px;}
+.section{margin-bottom:50px;}
+
+/* ================= HERO ================= */
+.hero{
+text-align:center;
+position:relative;
+background: linear-gradient(135deg, #38bdf8 0%, #60a5fa 100%);
+border-radius:20px;
+padding:60px 20px;
+color:#fff;
+z-index:100;
+}
+.hero h1{font-size:3rem;font-weight:800;margin-bottom:15px;}
+.hero p{font-size:1.2rem;color:rgba(255,255,255,0.9);}
+
+/* ================= CARD ================= */
+.card{
+background:var(--card);
+padding:25px;
+border-radius:20px;
+box-shadow:var(--shadow);
+margin-bottom:30px;
+}
+.card h2{
+font-weight:700;
+margin-bottom:15px;
+color:var(--text);
+}
+
+/* ================= AUDIO PLAYER ================= */
+.audio-card{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:15px;
+}
+.audio-controls{
+display:flex;
+align-items:center;
+gap:15px;
+}
+.audio-controls button{
+background:var(--primary);
+border:none;
+color:#fff;
+font-weight:700;
+padding:10px 20px;
+border-radius:12px;
+cursor:pointer;
+transition:.3s;
+}
+.audio-controls button:hover{opacity:.85;}
+.audio-slider{
+width:100%;
+margin-top:10px;
+}
+
+/* ================= VIDEO ================= */
+.video-card video{
+width:100%;
+border-radius:15px;
+display:block;
+}
+.video-card h3{
+font-weight:700;
+margin-bottom:10px;
+color:var(--text);
+}
+
+/* ================= PRODUCTS ================= */
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+.product-card{
+background:var(--card);
+border-radius:20px;
+padding:20px;
+box-shadow:var(--shadow);
+text-align:center;
+transition:.3s;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+}
+.product-card:hover{transform:translateY(-5px);}
+.product-images{
+display:flex;
+overflow-x:auto;
+gap:10px;
+margin-bottom:15px;
+}
+.product-images img{
+flex:0 0 auto;
+width:30%;
+border-radius:12px;
+object-fit:cover;
+cursor:pointer;
+transition:.3s;
+}
+.product-images img:hover{transform:scale(1.05);}
+.product-card h3{margin-bottom:5px;font-weight:700;color:var(--text);}
+.product-card .price{font-weight:700;color:var(--primary);margin-bottom:15px;}
+.product-card button{
+width:100%;
+padding:12px 0;
+border:none;
+background:var(--primary);
+color:#fff;
+font-weight:700;
+border-radius:12px;
+cursor:pointer;
+transition:.3s;
+}
+.product-card button:hover{opacity:.85;}
+
+/* ================= CART ================= */
+.cart-box{
+display:none;
+position:fixed;
+bottom:25px;
+right:25px;
+width:350px;
+max-height:80vh;
+overflow-y:auto;
+background:var(--card);
+padding:25px;
+border-radius:20px;
+box-shadow:var(--shadow);
+z-index:999;
+}
+.cart-box h4{font-weight:700;margin-bottom:15px;}
+.cart-items{max-height:200px;overflow-y:auto;font-size:14px;margin-bottom:10px;}
+.cart-total{font-weight:700;margin-bottom:10px;}
+.delivery-option{display:flex;gap:10px;margin-bottom:15px;}
+.delivery-option button{
+flex:1;
+padding:8px 0;
+border-radius:12px;
+border:none;
+cursor:pointer;
+font-weight:700;
+transition:.3s;
+background:#e5e7eb;
+}
+.delivery-option button.selected{background:var(--primary);color:#fff;}
+.cart-box button.checkout{
+width:100%;
+background:var(--primary);
+color:#fff;
+padding:12px;
+font-weight:700;
+border-radius:15px;
+border:none;
+cursor:pointer;
+transition:.3s;
+}
+.cart-box button.checkout:hover{opacity:.85;}
+
+/* ================= IMAGE MODAL ================= */
+#imgModal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.85);
+justify-content:center;
+align-items:center;
+z-index:1000;
+}
+#imgModal img{
+max-width:90%;
+max-height:90%;
+border-radius:15px;
+}
+#imgModal span{
+position:absolute;
+top:20px;
+right:30px;
+font-size:2rem;
+color:var(--primary);
+cursor:pointer;
+}
+
+/* ================= FOOTER ================= */
+footer{
+text-align:center;
+margin-top:60px;
+padding:30px 20px;
+font-weight:600;
+color:var(--muted);
+position:relative;
+z-index:100;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <!-- HERO -->
+  <div class="hero">
+    <h1>BETMAN SPORTS WEAR</h1>
+    <p>Built for the Streets. Ready for the Game.<br>Harare CBD</p>
+  </div>
+
+  <!-- STORE AUDIO -->
+  <div class="card audio-card">
+    <h3>Store Audio</h3>
+    <div class="audio-controls">
+      <button id="playAudio">Play</button>
+      <button id="pauseAudio">Pause</button>
+    </div>
+    <input type="range" id="audioSeek" class="audio-slider" min="0" max="100" value="0">
+    <audio id="storeAudio" src="batman.mp3"></audio>
+  </div>
+
+  <!-- FEATURED VIDEO -->
+  <div class="card video-card">
+    <h3>Store Spotlight</h3>
+    <video id="storeVideo" controls>
+      <source src="batman.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- PRODUCTS -->
+  <div class="card">
+    <h2>Premium Gear</h2>
+    <div class="products">
+
+      <div class="product-card" data-name="Match Jersey" data-price="25">
+        <div class="product-images">
+          <img src="jersey1.jpg" alt="">
+          <img src="jersey2.jpg" alt="">
+          <img src="jersey3.jpg" alt="">
+        </div>
+        <h3>Match Jersey</h3>
+        <div class="price">$25</div>
+        <button onclick="toggleCart('Match Jersey',25,this)">Add to Cart</button>
+      </div>
+
+      <div class="product-card" data-name="Street Sneakers" data-price="40">
+        <div class="product-images">
+          <img src="sneakers1.jpg" alt="">
+          <img src="sneakers2.jpg" alt="">
+          <img src="sneakers3.jpg" alt="">
+        </div>
+        <h3>Street Sneakers</h3>
+        <div class="price">$40</div>
+        <button onclick="toggleCart('Street Sneakers',40,this)">Add to Cart</button>
+      </div>
+
+      <div class="product-card" data-name="Training Tracksuit" data-price="35">
+        <div class="product-images">
+          <img src="tracksuit1.jpg" alt="">
+          <img src="tracksuit2.jpg" alt="">
+          <img src="tracksuit3.jpg" alt="">
+        </div>
+        <h3>Training Tracksuit</h3>
+        <div class="price">$35</div>
+        <button onclick="toggleCart('Training Tracksuit',35,this)">Add to Cart</button>
+      </div>
+
+      <div class="product-card" data-name="Signature Cap" data-price="15">
+        <div class="product-images">
+          <img src="cap1.jpg" alt="">
+          <img src="cap2.jpg" alt="">
+          <img src="cap3.jpg" alt="">
+        </div>
+        <h3>Signature Cap</h3>
+        <div class="price">$15</div>
+        <button onclick="toggleCart('Signature Cap',15,this)">Add to Cart</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CART -->
+<div class="cart-box" id="cartBox">
+  <h4>Your Order</h4>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-total" id="cartTotal"></div>
+  <div class="delivery-option">
+    <button class="selected" data-value="Pickup" onclick="selectDelivery(this)">Pickup</button>
+    <button data-value="Delivery" onclick="selectDelivery(this)">Delivery</button>
+  </div>
+  <button class="checkout" onclick="checkout()">Checkout via WhatsApp</button>
+</div>
+
+<!-- IMAGE MODAL -->
+<div id="imgModal">
+  <span id="closeModal">&times;</span>
+  <img src="" alt="">
+</div>
+
+<footer>
+BETMAN SPORTS WEAR — Game Ready. Street Proven.
+</footer>
+
+<script>
+/* ================= AUDIO ================= */
+const audio = document.getElementById('storeAudio');
+const playBtn = document.getElementById('playAudio');
+const pauseBtn = document.getElementById('pauseAudio');
+const slider = document.getElementById('audioSeek');
+playBtn.onclick = ()=>audio.play();
+pauseBtn.onclick = ()=>audio.pause();
+audio.ontimeupdate = ()=>{
+  if(audio.duration){
+    slider.value = (audio.currentTime/audio.duration)*100;
+  }
+};
+slider.oninput = ()=> {
+  audio.currentTime = (slider.value/100)*audio.duration;
+};
+
+/* ================= IMAGE MODAL ================= */
+const modal = document.getElementById('imgModal');
+const modalImg = modal.querySelector('img');
+const closeModal = document.getElementById('closeModal');
+document.querySelectorAll('.product-images img').forEach(img=>{
+  img.addEventListener('click',()=>{
+    modal.style.display='flex';
+    modalImg.src=img.src;
+  });
+});
+closeModal.addEventListener('click',()=>modal.style.display='none');
+
+/* ================= CART & WHATSAPP ================= */
+let cart=[];
+let delivery='Pickup';
+
+function toggleCart(name,price,btn){
+  const index = cart.findIndex(item=>item.name===name);
+  if(index>-1){
+    cart.splice(index,1);
+    btn.innerText='Add to Cart';
+  }else{
+    cart.push({name,price});
+    btn.innerText='Remove';
+  }
+  renderCart();
+}
+
+function renderCart(){
+  const cartBox=document.getElementById('cartBox');
+  const cartItems=document.getElementById('cartItems');
+  const cartTotal=document.getElementById('cartTotal');
+  if(cart.length===0){
+    cartBox.style.display='none';
+    return;
+  }
+  cartBox.style.display='block';
+  let html='';
+  let total=0;
+  cart.forEach(item=>{
+    html+=item.name+' - $'+item.price+'<br>';
+    total+=item.price;
+  });
+  cartItems.innerHTML=html;
+  cartTotal.innerHTML='<strong>Total: $'+total+'</strong>';
+}
+
+function selectDelivery(btn){
+  delivery=btn.dataset.value;
+  document.querySelectorAll('.delivery-option button').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+
+function checkout(){
+  if(cart.length===0) return alert('Please select items.');
+  let message='Hello Betman Sports Wear,%0A%0AI want to order:%0A';
+  let total=0;
+  cart.forEach(item=>{
+    message+="- "+item.name+" ($"+item.price+")%0A";
+    total+=item.price;
+  });
+  message+='%0AOrder Type: '+delivery;
+  message+='%0ATotal: $'+total;
+  window.open('https://wa.me/263779388560?text='+message,'_blank');
+}
+</script>
+</body>
+</html>
